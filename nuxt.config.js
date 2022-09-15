@@ -1,6 +1,15 @@
 import colors from 'vuetify/es5/util/colors'
+require('dotenv').config()
 
 export default {
+  // start project
+
+  publicRuntimeConfig: {
+    baseURL: process.env.BASE_URL || 'https://nuxtjs.org'
+  },
+  privateRuntimeConfig: {
+    apiSecret: process.env.API_SECRET
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - nuxt-app-learning',
@@ -21,7 +30,9 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~/plugins/index.ts'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -36,8 +47,12 @@ export default {
     '@nuxtjs/vuetify',
   ],
 
+  modulesDir: ['../../node_modules'],
+
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: [
+    '@nuxtjs/dotenv'
+  ],
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
