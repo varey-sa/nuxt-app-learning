@@ -1,14 +1,24 @@
 import colors from 'vuetify/es5/util/colors'
-require('dotenv').config()
+import config from './config'
+const { axios, proxy } = config
 
 export default {
   // start project
+  server: {
+    host: process.env.HOST || 'localhost',
+    port: process.env.PORT || 8888,
+    https: false,
+    hotOnly: false,
+  },
 
   publicRuntimeConfig: {
-    baseURL: process.env.BASE_URL || 'https://nuxtjs.org'
+    axios: {
+      baseURL: axios.baseURL,
+    },
+    apiKey: process.env.API_KEY,
   },
   privateRuntimeConfig: {
-    apiSecret: process.env.API_SECRET
+    apiKey: process.env.API_KEY,
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -30,9 +40,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/index.ts'
-  ],
+  plugins: ['~/plugins/index.ts'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -50,9 +58,10 @@ export default {
   modulesDir: ['../../node_modules'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxtjs/dotenv'
-  ],
+  modules: ['@nuxtjs/dotenv', '@nuxtjs/axios'],
+
+  // axios
+
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -75,4 +84,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  axios,
+  proxy,
 }
