@@ -5,7 +5,7 @@ const { axios, proxy } = config
 export default {
   // start project
   router: {
-    base: '/'
+    base: '/nuxt-app-learning'
   },
   server: {
     host: process.env.HOST || 'localhost',
