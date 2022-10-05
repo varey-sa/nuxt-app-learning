@@ -1,7 +1,9 @@
 <template>
   <v-row justify="center" align="center">
-    <div v-for="(user, idx) in userList" :key="idx" class="pa-2" @click="">
-      <user-profile :user-list="user"></user-profile>
+    <div v-for="(user, idx) in userList" :key="idx" class="pa-2">
+      <div @click="goToDetail(user.id)">
+        <user-profile :user-list="user" />
+      </div>
     </div>
   </v-row>
 </template>
@@ -12,6 +14,7 @@ import UserProfile from '~/components/user-profile/UserProfile.vue'
 // import axios from '~/config/axios'
 import axios from 'axios'
 @Component({
+  layout: 'SingleProduct',
   components: { UserProfile },
 })
 export default class UsersList extends Vue {
@@ -85,9 +88,14 @@ export default class UsersList extends Vue {
   userList = []
 
   async fetch() {
-    const data = await axios.get('https://dummyjson.com/products').then(response => response.data)
+    const data = await axios
+      .get(`${process.env.API_DUMMY}`)
+      .then((response) => response.data)
     this.userList = data.products
-    console.warn('hello', data.products)
+  }
+
+  async goToDetail(id: any) {
+    await this.$router.push({ path: `/${id}` })
   }
 }
 </script>
