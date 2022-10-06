@@ -5,7 +5,7 @@ const { axios, proxy } = config
 export default {
   // start project
   router: {
-    base: '/nuxt-app-learning'
+    base: '/',
   },
   server: {
     host: process.env.HOST || 'localhost',
@@ -22,6 +22,15 @@ export default {
   },
   privateRuntimeConfig: {
     apiKey: process.env.API_KEY,
+  },
+
+  auth: {
+    strategies: {
+      laravelSanctum: {
+        provider: 'laravel/sanctum',
+        url: process.env.API_URL || 'http://localhost:8000',
+      },
+    },
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -61,10 +70,9 @@ export default {
   modulesDir: ['../../node_modules'],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: ['@nuxtjs/dotenv', '@nuxtjs/axios'],
+  modules: ['@nuxtjs/dotenv', '@nuxtjs/axios', '@nuxtjs/auth-next'],
 
   // axios
-
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

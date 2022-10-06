@@ -3,4 +3,5 @@ export default {
   baseURL:
     (process.env.PROXY || 'true') === 'true' ? '/api' : process.env.API_URL,
   debug: process.env.NODE_ENV !== 'production',
+  credentials: true
 }

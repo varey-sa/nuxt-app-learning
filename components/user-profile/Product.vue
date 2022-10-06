@@ -7,12 +7,12 @@
         indeterminate
       ></v-progress-linear>
     </template>
-    <v-img height="250" :src="userList.images[1]"></v-img>
-    <v-card-title>{{ userList.title }}</v-card-title>
+    <v-img height="250" :src="product.image"></v-img>
+    <v-card-title>{{ product.title }}</v-card-title>
     <v-card-text>
       <v-row align="center" class="mx-0">
         <v-rating
-          :value="userList.rating"
+          :value="product.rating"
           color="amber"
           dense
           half-increments
@@ -21,14 +21,14 @@
         ></v-rating>
 
         <div class="grey--text ms-4">
-          {{ userList.rating }} ({{ userList.totalViews }})
+          {{ product?.rating }} ({{ product?.totalViews }})
         </div>
       </v-row>
 
-      <div class="my-4 text-subtitle-1">$ • {{ userList.price }}</div>
+      <div class="my-4 text-subtitle-1">$ • {{ product.price }}</div>
 
       <div>
-        {{ userList.description }}
+        {{ product.description }}
       </div>
     </v-card-text>
 
@@ -38,7 +38,7 @@
 
     <v-card-text>
       <v-chip-group active-class="deep-purple accent-4 white--text" column>
-        <v-chip>{{ userList.category }}</v-chip>
+        <v-chip>{{ product.category }}</v-chip>
       </v-chip-group>
     </v-card-text>
     <v-card-actions>
@@ -50,10 +50,10 @@
 <script lang="ts">
 import { Component, Prop, Vue } from 'nuxt-property-decorator'
 @Component
-export default class UserProfile extends Vue {
+export default class Product extends Vue {
   // Props
   @Prop({ type: Object, default: {} })
-  userList!: {}
+  product!: {}
 
   // Data
   loading = false
