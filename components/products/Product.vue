@@ -1,5 +1,5 @@
 <template>
-  <div class="products">
+  <div class="products" style="background-color: #F5F5F5">
     <v-responsive
       :aspect-ratio="4"
       :min-height="350"
@@ -9,12 +9,12 @@
       <v-container class="content-body pa-4">
         <v-row>
           <v-col>
-            <v-img height="250" :src="product.image"></v-img>
+            <v-img height="250" :src="product.image" />
           </v-col>
           <v-col class="pb-0">
-            <div class="mb-3">
+            <h3 class="mb-3">
               {{ product.title }}
-            </div>
+            </h3>
             <v-row align="center" class="mx-0">
               <v-rating
                 :value="product.rating"
@@ -56,8 +56,9 @@ export default class Product extends Vue {
 </script>
 <style scoped>
 .products {
+  box-shadow: 0 4px 8px 0 #B0BEC5, 0 6px 20px 0 #B0BEC5;
   background-color: white;
-  border: 4px solid #8fc190;
+  border: 4px solid white;
   border-radius: 5px;
   cursor: pointer;
   width: 100%;

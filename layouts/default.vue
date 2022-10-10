@@ -1,15 +1,15 @@
 <template>
   <v-app dark>
-    <v-app-bar app elevation="0" elevate-on-scroll   style="background-color: #95b9c7">
+    <v-app-bar app elevation="0" elevate-on-scroll   style="background-color: #E0F7FA">
       <nuxt-link to="/" style="text-decoration-line: none">
-        <v-toolbar-title v-text="title" />
+        <v-toolbar-title class="black--text" v-text="title" />
       </nuxt-link>
       <v-spacer />
       <v-avatar size="60">
         <v-img :src="require('@/assets/images/avatar1.jpg')" />
       </v-avatar>
     </v-app-bar>
-    <v-main style="background-color: #95b9c7">
+    <v-main style="background-color:#E0F7FA">
       <v-container style="background-color: #fff" class="pa-10">
         <Nuxt />
       </v-container>
@@ -23,7 +23,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 @Component
 export default class Index extends Vue {
-  title = 'My Portfolio'
+  title = 'E-COMMERCE'
   items = [
     {
       src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',

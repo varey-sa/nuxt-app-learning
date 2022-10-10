@@ -5,7 +5,7 @@
         <v-img :src="c.image" height="300px"></v-img>
         <v-card-title> {{ c.name }} </v-card-title>
         <v-card-subtitle> 1,000 miles of wonder </v-card-subtitle>
-        <v-card-actions>
+        <v-card-actions class=" d-flex justify-center">
           <v-btn
             rounded
             dark

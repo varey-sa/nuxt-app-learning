@@ -1,5 +1,6 @@
 <template>
   <v-container class="my-contents" grid-list-md>
+    <h2 class="pb-10">{{ categoryName }}</h2>
     <v-layout row wrap v-if="products.length">
       <v-flex
         v-for="(product, idx) in products"
@@ -38,11 +39,6 @@ export default class ProductList extends Vue {
       )
       this.products = categoryProducts.data.products
       this.categoryName = categoryProducts.data.name
-      this.products.forEach((product) => {
-        Object.assign(product, {
-          category: this.categoryName,
-        })
-      })
     } catch (e) {}
   }
 
