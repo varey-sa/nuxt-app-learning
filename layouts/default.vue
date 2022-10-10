@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <v-app-bar app elevation="4" elevate-on-scroll>
+    <v-app-bar app elevation="0" elevate-on-scroll   style="background-color: #95b9c7">
       <nuxt-link to="/" style="text-decoration-line: none">
         <v-toolbar-title v-text="title" />
       </nuxt-link>
@@ -9,22 +9,8 @@
         <v-img :src="require('@/assets/images/avatar1.jpg')" />
       </v-avatar>
     </v-app-bar>
-    <v-main>
-<!--      <v-carousel-->
-<!--        cycle-->
-<!--        height="70vh"-->
-<!--        class="px-4"-->
-<!--        hide-delimiter-background-->
-<!--        show-arrows-on-hover-->
-<!--      >-->
-<!--        <v-carousel-item-->
-<!--          v-for="(item, i) in items"-->
-<!--          :key="i"-->
-<!--          :src="item.src"-->
-<!--        ></v-carousel-item>-->
-<!--      </v-carousel>-->
-      <v-container>
-        <div>Personal Info</div>
+    <v-main style="background-color: #95b9c7">
+      <v-container style="background-color: #fff" class="pa-10">
         <Nuxt />
       </v-container>
     </v-main>

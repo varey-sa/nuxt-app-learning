@@ -18,7 +18,7 @@ export default {
     axios: {
       baseURL: axios.baseURL,
     },
-    apiKey: process.env.API_KEY,
+    // apiKey: process.env.API_KEY,
   },
   privateRuntimeConfig: {
     apiKey: process.env.API_KEY,

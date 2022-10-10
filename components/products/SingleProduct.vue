@@ -19,43 +19,49 @@
           readonly
           size="14"
         ></v-rating>
-
         <div class="grey--text ms-4">
           {{ product?.rating }} ({{ product?.totalViews }})
         </div>
       </v-row>
-
       <div class="my-4 text-subtitle-1">$ • {{ product.price }}</div>
-
       <div>
         {{ product.description }}
       </div>
     </v-card-text>
-
     <v-divider class="mx-4"></v-divider>
-
-    <v-card-title>Tonight's availability</v-card-title>
-
+    <v-card-title>{{ product.brand }}</v-card-title>
     <v-card-text>
-      <v-chip-group active-class="deep-purple accent-4 white--text" column>
-        <v-chip>{{ product.category }}</v-chip>
-      </v-chip-group>
+      <v-chip text-color="white" color="green" v-if="!isDetail">{{
+        product.category
+      }}</v-chip>
     </v-card-text>
-    <v-card-actions>
-      <v-btn color="deep-purple lighten-2" text> Reserve </v-btn>
+    <v-card-actions v-if="isDetail" class="justify-center">
+      <v-btn
+        dark
+        class="pa-4"
+        rounded
+        color="red"
+        @click="deleteProduct(product.id)"
+      >
+        Remove
+      </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script lang="ts">
-import { Component, Prop, Vue } from 'nuxt-property-decorator'
+import { Component, Prop, Emit, Vue } from 'nuxt-property-decorator'
 @Component
 export default class Product extends Vue {
   // Props
   @Prop({ type: Object, default: {} })
   product!: {}
 
-  // Data
+  @Prop({ type: Boolean, default: false })
+  isDetail!: false
+
+  @Emit()
+  deleteProduct() {}
   loading = false
 }
 </script>
