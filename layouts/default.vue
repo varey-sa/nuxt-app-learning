@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <v-app-bar app elevation="0" elevate-on-scroll   style="background-color: #E0F7FA">
+    <v-app-bar app elevation="0" elevate-on-scroll   style="background-color: #ECEFF1">
       <nuxt-link to="/" style="text-decoration-line: none">
         <v-toolbar-title class="black--text" v-text="title" />
       </nuxt-link>
@@ -9,12 +9,12 @@
         <v-img :src="require('@/assets/images/avatar1.jpg')" />
       </v-avatar>
     </v-app-bar>
-    <v-main style="background-color:#E0F7FA">
+    <v-main style="background-color: #ECEFF1">
       <v-container style="background-color: #fff" class="pa-10">
         <Nuxt />
       </v-container>
     </v-main>
-    <v-footer fixed app>
+    <v-footer fixed app style="background-color: #ECEFF1">
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
